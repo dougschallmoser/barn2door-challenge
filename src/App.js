@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import SearchBar from './components/SearchBar';
+import ResultList from './components/ResultList';
+import jsonData from './API/example_data.json';
 
-function App() {
+const App = () => {
+
+  const [items, setItems] = useState([])
+
+  const handleSubmit = async (term) => {
+    const data = JSON.parse(JSON.stringify(jsonData));
+    const filteredData = data.items.filter(item => {
+      return item.categories.some(cat => cat.name.toLowerCase().includes(term)) || 
+          item.title.toLowerCase().includes(term)
+    })
+    setItems(filteredData)
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div id="search-container">
+      <SearchBar onFormSubmit={handleSubmit} />
+      <ResultList items={items} />
     </div>
-  );
+  )
 }
 
 export default App;

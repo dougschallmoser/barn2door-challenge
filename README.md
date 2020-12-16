@@ -1,70 +1,131 @@
-# Getting Started with Create React App
+# Barn2Door Take Home
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This phase of the interview process will consist of you completing this short (1-2 hour) take home problem and then we will evaluate your solution.  If we decide to move forward, we will invite you back to review your code and conduct an in-person interivew with two or more members of our team for approximately 2.5 hours total. Please create a merge request to push your final version within 1 week of receiving the invite as your access will be revoked after 1 week. If any questions pop up while completing this assignment, feel free to email us at geoff@barn2door.com. 
 
-## Available Scripts
+## Overview
 
-In the project directory, you can run:
+### Objective:
+Using the supplied JSON [example_data.json](./example_data.json), create a view that takes a users input and renders the objects that contain the users input to the screen.
 
-### `yarn start`
+### What we are looking for: 
+* Your understanding of front-end aspects of development.
+* Your thought process in solving problems.
+* Your in-depth understanding of what you built.
+* Your ability to write readable, scalable code.
+* How you communicate to peers about your work.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### What you don't need to worry about
+* Writing the most efficient code. We care more about your overall thought process.
+* Using a specific programming language or framework. Use what you know!
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### What we will rate you on
+* Meet requirements - did you follow the specification?  If in doubt, document your assumptions.
+* Code quality - is your code easy to read and maintain?
+* Structure - are your directories, files, and code organized in a logical way?
+* Optimization - is your code efficient?
+* Bonus: Make it look pretty for bonus points to set you apart.
 
-### `yarn test`
+## Specification
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Be able to parse data like the supplied json file ([example_data.json](./example_data.json)) based on a user's input. You should return all the objects that contain the supplied phrase at any sensible point. The matching objects should be rendered on to the screen any way you would like that goes beyond just text. Your solution should be able to handle characters, words, and phrases.
 
-### `yarn build`
+When you are done, edit this README with your answers to the questions at the bottom of the page.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+---
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Example Input / Output
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+**User input:** Fruit
 
-### `yarn eject`
+**Expected Objects:**
+```
+{
+    "items": [
+        {
+            "id": 1,
+            "categories": [
+                {
+                    "id": 1,
+                    "name": "Fruit",
+                    "subcategory": {
+                        "id": 1,
+                        "name": "Apple"
+                    }
+                }
+            ],
+            "title": "Red Delicious",
+            "img": "http://www.bluestarclinic.com/wp-content/uploads/2013/12/apple-img.jpg",
+            "description": "Yummy delicious apples that are red."
+        },
+        {
+            "id": 2,
+            "categories": [
+                {
+                    "id": 2,
+                    "name": "Fruit"
+                },
+                {
+                    "id": 3,
+                    "name": "Vegetable"
+                }
+            ],
+            "title": "Potato",
+            "img": "https://paleofoundation.com/wp-content/uploads/2018/04/Are-Potatoes-Paleo-Are-Potatoes-allowed-on-the-Paleo-Diet.png",
+            "description": "What even is a potato?"
+        }
+]
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+**User input:** Red
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+**Expected Objects:**
+```
+[
+    {
+            "id": 1,
+            "categories": [
+                {
+                    "id": 1,
+                    "name": "Fruit",
+                    "subcategory": {
+                        "id": 1,
+                        "name": "Apple"
+                    }
+                }
+            ],
+            "title": "Red Delicious",
+            "img": "http://www.bluestarclinic.com/wp-content/uploads/2013/12/apple-img.jpg",
+            "description": "Yummy delicious apples that are red."
+    },
+    {
+            "id": 3,
+            "categories": [
+                {
+                    "id": 3,
+                    "name": "Vegetable",
+                    "subcategory": {
+                        "id": 2,
+                        "name": "Root"
+                    }
+                }
+            ],
+            "title": "Red Radishes"
+    }
+]
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+---
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+# Questions
+### How do we run your app? (ex. `npm install` and then `npm start`)
+> Run 'npm install'. Then run 'npm start'.
 
-## Learn More
+### How long did it take you to complete this assignment (in hours)?
+> 2.5 hours
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### What did you enjoy the most while working on this assignment?
+> I enjoyed the challenge of using a local json file and combing through the data to parse the search query.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### What did you learn (if anything) while working on this assignment? (optional)
+> How to utilize a local json file as I am accustomed to making a fetch request.
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
